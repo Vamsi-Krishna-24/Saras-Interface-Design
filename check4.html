@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>    
+    <meta charset ="UTF-8">
+    <title>Vamsi's</title>
+    <script src ="https://cdn.tailwindcss.com"></script>
+    <script>
+        function changeImage(url){
+            document.getElementById("feature-image").src = url;
+        }
+    </script>
+  </head>
+  <body class="bg-sky-100 min-h-screen flex flex-row items-center justify-center gap-6 p-10">
+
+    <!-- 🧱 LEFT: Text + Cards stacked vertically -->
+    <div class="flex flex-col gap-6">
+    <h1 class = "font-serif text-5xl font-stretch-extra-condensed font-centre ">Test page for saras </h1>
+    <div onclick="changeImage('https://raw.githubusercontent.com/Vamsi-Krishna-24/sattvanna-fe/refs/heads/main/WCRP1.webp')" class="bg-white p-6 rounded-lg shadow-md mb-6 w-80 text-center transform transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-2xl"> 
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">  Hello Tailwind 01</h1>
+        <p class="text-gray-700">This is a simple starter template using Tailwind CSS.</p>
+    </div>
+
+
+
+    <div onclick="changeImage('https://raw.githubusercontent.com/Vamsi-Krishna-24/sattvanna-fe/refs/heads/main/WSSRP.webp')" class="bg-white p-6 rounded-lg shadow-md mb-6 w-80 text-center transform transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+        <h1 class="text-2xl font-serif font-bold text-blue-600 mb-4 ">  Hello Tailwind 02</h1>
+        <p class="text-gray-700">This is a simple starter template using Tailwind CSS.</p>
+    </div>
+   
+
+        <div onclick="changeImage('https://raw.githubusercontent.com/Vamsi-Krishna-24/sattvanna-fe/refs/heads/main/WSSRB2.webp')" class="bg-white p-6 rounded-lg shadow-md mb-6 w-80 text-center  transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+          <h1 class="text-2xl font-bold text-blue-600 mb-4">Hover Me</h1>
+          <p class="text-gray-700">This card is clickable & interactive.</p>
+        </div>
+    </div>
+
+    <div>
+        <img
+        id="feature-image"
+        src="https://raw.githubusercontent.com/Vamsi-Krishna-24/sattvanna-fe/refs/heads/main/WCRP1.webp"
+        alt="Sample Image"
+        class="rounded-lg shadow-lg w-[300px]"
+      />
+    </div>
+
+      
+
+  </body>
+  
+  
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxPal - Everything you need to run your books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-tab {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .feature-tab:hover {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .feature-tab.active {
+            background-color: rgba(255, 255, 255, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        .image-container {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+        }
+        .feature-image {
+            display: none;
+            width: 100%;
+            height: 320px; /* Fixed height for consistency */
+        }
+        .feature-image.active {
+            display: block;
+        }
+        .test-dashboard {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .dashboard-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            border-left: 4px solid;
+        }
+        .chart-container {
+            flex: 1;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .mini-chart {
+            width: 80%;
+            height: 60px;
+            background: linear-gradient(90deg, #3b82f6 20%, #10b981 50%, #f59e0b 80%);
+            border-radius: 0.25rem;
+            position: relative;
+        }
+        .mini-chart::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-6 py-12 min-h-screen flex flex-col justify-center">
+        <!-- Centered Header -->
+        <div class="text-center text-white space-y-4 mb-16">
+            <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                Everything you need to run your books.
+            </h1>
+            <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+                Well everything you need if you aren't that picky about minor details like tax compliance.
+            </p>
+        </div>
+
+        <div class="w-full max-w-4xl mx-auto">
+            <!-- Feature Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="feature-tab active bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-feature="payroll">
+                    Payroll
+                </button>
+                <button class="feature-tab bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-feature="expenses">
+                    Claim Expenses
+                </button>
+                <button class="feature-tab bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-feature="vat">
+                    VAT Handling
+                </button>
+                <button class="feature-tab bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-feature="reporting">
+                    Reporting
+                </button>
+            </div>
+
+            <!-- Image Display Area -->
+            <div>
+                <div class="image-container bg-white rounded-lg overflow-hidden max-w-3xl mx-auto">
+                    <!-- Payroll Image -->
+                    <div class="feature-image active" id="payroll-image">
+                        <div class="test-dashboard bg-gradient-to-br from-blue-50 to-indigo-100">
+                            <div class="dashboard-header">
+                                <h3 class="text-xl font-bold text-gray-800">Payroll Dashboard</h3>
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="data-row border-blue-500">
+                                    <span class="font-medium text-gray-700">John Smith</span>
+                                    <span class="text-green-600 font-semibold">$5,200 ✓</span>
+                                </div>
+                                <div class="data-row border-blue-500">
+                                    <span class="font-medium text-gray-700">Sarah Johnson</span>
+                                    <span class="text-red-600 font-semibold">$4,800 ✗</span>
+                                </div>
+                                <div class="data-row border-blue-500">
+                                    <span class="font-medium text-gray-700">Mike Wilson</span>
+                                    <span class="text-green-600 font-semibold">$3,950 ✓</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="text-center">
+                                        <div class="text-sm text-gray-600 mb-2">Monthly Payroll Summary</div>
+                                        <div class="mini-chart bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expenses Image -->
+                    <div class="feature-image" id="expenses-image">
+                        <div class="test-dashboard bg-gradient-to-br from-green-50 to-emerald-100">
+                            <div class="dashboard-header">
+                                <h3 class="text-xl font-bold text-gray-800">Expense Tracker</h3>
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="data-row border-green-500">
+                                    <span class="font-medium text-gray-700">Office Supplies</span>
+                                    <span class="text-gray-800 font-semibold">$247.50</span>
+                                </div>
+                                <div class="data-row border-green-500">
+                                    <span class="font-medium text-gray-700">Travel Expenses</span>
+                                    <span class="text-gray-800 font-semibold">$1,125.00</span>
+                                </div>
+                                <div class="data-row border-green-500">
+                                    <span class="font-medium text-gray-700">Client Lunch</span>
+                                    <span class="text-gray-800 font-semibold">$89.75</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="text-center">
+                                        <div class="text-sm text-gray-600 mb-2">Expense Categories</div>
+                                        <div class="mini-chart bg-gradient-to-r from-green-400 to-emerald-600"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VAT Image -->
+                    <div class="feature-image" id="vat-image">
+                        <div class="test-dashboard bg-gradient-to-br from-purple-50 to-violet-100">
+                            <div class="dashboard-header">
+                                <h3 class="text-xl font-bold text-gray-800">VAT Management</h3>
+                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="data-row border-purple-500">
+                                    <span class="font-medium text-gray-700">VAT Collected</span>
+                                    <span class="text-gray-800 font-semibold">$0.00</span>
+                                </div>
+                                <div class="data-row border-purple-500">
+                                    <span class="font-medium text-gray-700">VAT Paid</span>
+                                    <span class="text-gray-800 font-semibold">$0.00</span>
+                                </div>
+                                <div class="data-row border-purple-500">
+                                    <span class="font-medium text-gray-700">Net VAT</span>
+                                    <span class="text-green-600 font-semibold">$0.00 ✓</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="text-center">
+                                        <div class="text-sm text-gray-600 mb-2">VAT Status: Compliant</div>
+                                        <div class="mini-chart bg-gradient-to-r from-purple-400 to-violet-600"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reporting Image -->
+                    <div class="feature-image" id="reporting-image">
+                        <div class="test-dashboard bg-gradient-to-br from-orange-50 to-amber-100">
+                            <div class="dashboard-header">
+                                <h3 class="text-xl font-bold text-gray-800">Reports Dashboard</h3>
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2-2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="data-row border-orange-500">
+                                    <span class="font-medium text-gray-700">Monthly Report</span>
+                                    <span class="text-blue-600 font-semibold">Excel ↓</span>
+                                </div>
+                                <div class="data-row border-orange-500">
+                                    <span class="font-medium text-gray-700">Quarterly Summary</span>
+                                    <span class="text-blue-600 font-semibold">Excel ↓</span>
+                                </div>
+                                <div class="data-row border-orange-500">
+                                    <span class="font-medium text-gray-700">Annual Overview</span>
+                                    <span class="text-blue-600 font-semibold">Excel ↓</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="text-center">
+                                        <div class="text-sm text-gray-600 mb-2">Export to Excel Available</div>
+                                        <div class="mini-chart bg-gradient-to-r from-orange-400 to-amber-600"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for tab functionality
+        const featureTabs = document.querySelectorAll('.feature-tab');
+        const featureImages = document.querySelectorAll('.feature-image');
+
+        featureTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                featureTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all images
+                featureImages.forEach(img => img.classList.remove('active'));
+                
+                // Show corresponding image
+                const feature = tab.getAttribute('data-feature');
+                document.getElementById(feature + '-image').classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
